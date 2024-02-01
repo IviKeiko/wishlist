@@ -8,11 +8,18 @@ import { WishItem } from '../shared/models/wishItem';
 })
 export class AppComponent {
   items: WishItem[] = [
-    new WishItem('Learn Angular'),
-    new WishItem('Take a Walk', true),
-    new WishItem('Play Boardgame'),
+    // new WishItem('Learn Angular'),
+    // new WishItem('Take a Walk', true),
+    // new WishItem('Play Boardgame'),
   ];
+  newWishText = '';
+
   title = 'wishlist';
+
+  addNewWish() {
+    this.items.push(new WishItem(this.newWishText));
+    this.newWishText = '';
+  }
 
   toggleItem(item: WishItem) {
     item.isComplete = !item.isComplete;
